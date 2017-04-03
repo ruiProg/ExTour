@@ -1,0 +1,26 @@
+# Play framework
+bin/
+/db
+logs
+target
+/RUNNING_PID
+/lib
+/modules
+/project/project
+/project/target
+/project/plugins/target
+/tmp
+test-result
+server.pid
+*.eml
+/dist
+.cache
+.sbtserver
+
+# IDE:
+/.idea
+/.idea_modules
+/.classpath
+/.project
+/.settings
+.eclipse
