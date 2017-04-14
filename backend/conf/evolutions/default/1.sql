@@ -3,6 +3,12 @@
 
 # --- !Ups
 
+create table category (
+  id                            varchar(4) not null,
+  title                         varchar(255) not null,
+  constraint pk_category primary key (id)
+);
+
 create table council (
   id                            varchar(10) not null,
   name                          varchar(255) not null,
@@ -37,6 +43,8 @@ drop index ix_council_district_id on council;
 
 alter table parish drop foreign key fk_parish_council_id;
 drop index ix_parish_council_id on parish;
+
+drop table if exists category;
 
 drop table if exists council;
 

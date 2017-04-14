@@ -2,12 +2,13 @@ package controllers;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import java.util.concurrent.CompletionStage;
+import java.util.concurrent.ExecutionException;
 
+import extra.EstateSQL;
 import play.Application;
 import javax.inject.Inject;
 import javax.inject.Provider;
 
-import play.Logger;
 import play.libs.ws.WSClient;
 import play.libs.ws.WSRequest;
 import play.libs.ws.WSResponse;
@@ -41,7 +42,22 @@ public class DevController extends Controller {
                .setQueryParameter("sid","2");
 
        CompletionStage<JsonNode> catPromise = request.get().thenApply(WSResponse::asJson);
-       catPromise.thenAccept((catJSON) -> Logger.error(catJSON.toString()));
-       return ok("Ok");
+       CompletionStage<Boolean> ret = catPromise.thenApply(EstateSQL::processCategories);
+
+       WSRequest requestPro = ws.url(categoriesURL);
+       requestPro.setQueryParameter("t","PAT")
+               .setQueryParameter("token","A45E9DBA-0AD4-4A1B-AEBD-ED9E58FDF2F0")
+               .setQueryParameter("sid","1");
+
+       CompletionStage<JsonNode> catProPromise = requestPro.get().thenApply(WSResponse::asJson);
+       CompletionStage<Boolean> retPro = catProPromise.thenApply(EstateSQL::processCategories);
+
+       try {
+           if(ret.toCompletableFuture().get() && retPro.toCompletableFuture().get())
+               return ok("Categories parsed");
+       } catch (Exception e) {
+           e.printStackTrace();
+       }
+       return internalServerError("Categories request could not be parsed");
    }
 }

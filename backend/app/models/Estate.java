@@ -12,8 +12,10 @@ import com.avaje.ebean.Model;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
 @Entity
-public class Council extends Model {
+public class Estate extends Model {
+
 
     @Id
     @Column(length = 10)
@@ -27,7 +29,7 @@ public class Council extends Model {
     public District district;
 
     @OneToMany(mappedBy = "council")
-    public List<Parish> parishes = new ArrayList<>();
+    public List<Parish> councils = new ArrayList<>();
 
     public static Finder<String,Council> find = new Finder<>(Council.class);
 
@@ -36,4 +38,6 @@ public class Council extends Model {
         name = pName;
         district = District.find.byId(pDistrict);
     }
+
 }
+*/
