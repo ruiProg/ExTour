@@ -5,39 +5,46 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 
 import com.avaje.ebean.Model;
 
-import java.util.ArrayList;
-import java.util.List;
-
-/*
 @Entity
 public class Estate extends Model {
-
 
     @Id
     @Column(length = 10)
     public String id;
 
     @Basic(optional = false)
-    public String name;
+    public String title;
 
     @ManyToOne()
     @Basic(optional = false)
-    public District district;
+    public Category category;
 
-    @OneToMany(mappedBy = "council")
-    public List<Parish> councils = new ArrayList<>();
+    @ManyToOne()
+    @Basic(optional = false)
+    public Parish parish;
 
-    public static Finder<String,Council> find = new Finder<>(Council.class);
+    @Column(columnDefinition = "TEXT")
+    public String details;
 
-    public Council(String pID, String pName, String pDistrict){
+    public String imageURL;
+    public String linkURL;
+
+    @Column(length=40)
+    public String coords;
+
+    public static Finder<String,Estate> find = new Finder<>(Estate.class);
+
+    public Estate(String pID, String pTitle, String pCategory, String parishID, String pDetails, String pImageURL, String pLinkURL, String pCoords){
         id = pID;
-        name = pName;
-        district = District.find.byId(pDistrict);
+        title = pTitle;
+        category = Category.find.byId(pCategory);
+        parish = Parish.find.byId(parishID);
+        details = pDetails;
+        imageURL = pImageURL;
+        linkURL = pLinkURL;
+        coords = pCoords;
     }
-
 }
-*/

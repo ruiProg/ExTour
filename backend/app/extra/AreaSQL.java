@@ -22,6 +22,42 @@ public class AreaSQL{
         source = pSource;
     }
 
+    private String parseCapital(String txt){
+
+        txt = txt.toLowerCase();
+        if(txt.length() > 0) {
+            char[] charArray = txt.toCharArray();
+            charArray[0] = Character.toUpperCase(charArray[0]);
+            int i = 1;
+            while(i < charArray.length){
+                if(!Character.isLetter(charArray[i]) && i + 1 < charArray.length) {
+                    boolean found = false;
+                    if (charArray[i + 1] == 'd' && i + 3 < charArray.length){
+                        if(charArray[i + 2] == 'a' || charArray[i + 2] == 'e' || charArray[ i + 2] == 'o') {
+                            if (!Character.isLetter(charArray[i + 3]))
+                                found = true;
+                            else if(i + 4 < charArray.length && charArray[i + 3] == 's'){
+                                if (!Character.isLetter(charArray[i + 4]))
+                                    found = true;
+                            }
+                        }
+                    }
+                    else if (charArray[i + 1] == 'e' && i + 2 < charArray.length){
+                        if (!Character.isLetter(charArray[i + 2]))
+                            found = true;
+                    }
+                    if (!found && Character.isLetter(charArray[i + 1])) {
+                        charArray[i + 1] = Character.toUpperCase(charArray[i + 1]);
+                        i++;
+                    }
+                }
+                i++;
+            }
+            return new String(charArray);
+        }
+        return "";
+    }
+
     public boolean process(){
 
         try {
@@ -46,6 +82,8 @@ public class AreaSQL{
                     newCouncil.save();
                 }
                 else{
+                    //some parishes are in capital
+                    name = parseCapital(name);
                     Parish newParish = new Parish(id,name, currCouncil);
                     newParish.save();
                 }

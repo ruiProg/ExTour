@@ -21,8 +21,8 @@ public class Category extends Model {
     @Basic(optional = false)
     public String title;
 
-    //@OneToMany(mappedBy = "category")
-    //public List<Estate> estates = new ArrayList<>();
+    @OneToMany(mappedBy = "category")
+    public List<Estate> estates = new ArrayList<>();
 
     public static Finder<String,Category> find = new Finder<>(Category.class);
 
