@@ -1,7 +1,10 @@
 package controllers;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
+import java.io.FileNotFoundException;
+import java.util.Scanner;
 import java.util.concurrent.CompletionStage;
 
 import extra.EstateSQL;
@@ -104,6 +107,19 @@ public class DevController extends Controller {
            CompletionStage<JsonNode> estatesPromise = request.get().thenApply(WSResponse::asJson);
            estatesPromise.thenAcceptAsync(this::parseEstates);
 
+       return ok("Estates saved");
+   }
+
+   public Result parseEstatesFile(String idFile){
+
+       try {
+           String content = new Scanner(appProvider.get().getFile("conf/estatesFile_"+idFile+".txt"), "UTF-8").useDelimiter("\\Z").next();
+           ObjectMapper mapper = new ObjectMapper();
+           JsonNode estatesJSON = mapper.readTree(content);
+           parseEstates(estatesJSON);
+       } catch (Exception e) {
+           e.printStackTrace();
+       }
        return ok("Estates saved");
    }
 }
