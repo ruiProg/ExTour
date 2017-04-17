@@ -24,10 +24,13 @@ public class Category extends Model {
     @OneToMany(mappedBy = "category")
     public List<Estate> estates = new ArrayList<>();
 
+    public boolean isProtected;
+
     public static Finder<String,Category> find = new Finder<>(Category.class);
 
-    public Category(String pID, String pTitle){
+    public Category(String pID, String pTitle, boolean pProtected){
         id = pID;
         title = pTitle;
+        isProtected = pProtected;
     }
 }

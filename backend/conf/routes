@@ -2,10 +2,14 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
-GET     /dev/regions                 controllers.DevController.parseRegions()
-GET     /dev/categories              controllers.DevController.parseCategories()
-GET     /dev/estates/:id             controllers.DevController.parseEstates(id: String)
-GET     /dev/estatesFile/:id         controllers.DevController.parseEstatesFile(id: String)
+GET     /api/categories             controllers.ApiController.getCategories()
+GET     /api/regions                controllers.ApiController.getRegions(id: String ?="-1")
+GET     /api/pois                   controllers.ApiController.getPOIS(categories: java.util.List[String], regions: java.util.List[String], tag: String ?="")
+
+GET     /dev/regions                controllers.DevController.parseRegions()
+GET     /dev/categories             controllers.DevController.parseCategories()
+GET     /dev/estates/:id            controllers.DevController.parseEstates(id: String)
+GET     /dev/estatesFile/:id        controllers.DevController.parseEstatesFile(id: String)
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)

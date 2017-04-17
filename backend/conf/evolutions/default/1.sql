@@ -6,6 +6,7 @@
 create table category (
   id                            varchar(4) not null,
   title                         varchar(255) not null,
+  is_protected                  tinyint(1) default 0,
   constraint pk_category primary key (id)
 );
 

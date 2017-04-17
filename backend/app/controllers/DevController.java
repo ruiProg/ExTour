@@ -3,7 +3,6 @@ package controllers;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.util.concurrent.CompletionStage;
 
@@ -56,6 +55,7 @@ public class DevController extends Controller {
                .setQueryParameter("token",token)
                .setQueryParameter("sid","1");
 
+       EstateSQL.unsetProtected();
        CompletionStage<JsonNode> catProPromise = requestPro.get().thenApply(WSResponse::asJson);
        CompletionStage<Boolean> retPro = catProPromise.thenApply(EstateSQL::processCategories);
 

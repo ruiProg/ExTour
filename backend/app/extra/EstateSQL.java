@@ -10,12 +10,19 @@ import models.Parish;
 
 public class EstateSQL {
 
+    private static boolean isProtected = true;
+
+    public static void unsetProtected(){
+
+        isProtected = false;
+    }
+
     public static boolean processCategories(JsonNode catJSON){
 
         catJSON = catJSON.get("Categories");
         if(catJSON.isArray()){
             for(JsonNode cat: catJSON){
-                Category newCat = new Category(cat.get("ID").asText(),cat.get("Titulo").asText());
+                Category newCat = new Category(cat.get("ID").asText(),cat.get("Titulo").asText(),isProtected);
                 newCat.save();
             }
             return true;
