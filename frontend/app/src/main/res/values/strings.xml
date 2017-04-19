@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Ex_Tour</string>
+    <string name="title_activity_search_maps">SearchMap</string>
+</resources>
