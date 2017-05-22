@@ -6,7 +6,7 @@
 create table category (
   id                            varchar(4) not null,
   title                         varchar(255) not null,
-  is_protected                  boolean,
+  is_protected                  tinyint(1) default 0,
   constraint pk_category primary key (id)
 );
 
@@ -53,3 +53,29 @@ create index ix_estate_parish_id on estate (parish_id);
 
 alter table parish add constraint fk_parish_council_id foreign key (council_id) references council (id) on delete restrict on update restrict;
 create index ix_parish_council_id on parish (council_id);
+
+
+# --- !Downs
+
+alter table council drop foreign key fk_council_district_id;
+drop index ix_council_district_id on council;
+
+alter table estate drop foreign key fk_estate_category_id;
+drop index ix_estate_category_id on estate;
+
+alter table estate drop foreign key fk_estate_parish_id;
+drop index ix_estate_parish_id on estate;
+
+alter table parish drop foreign key fk_parish_council_id;
+drop index ix_parish_council_id on parish;
+
+drop table if exists category;
+
+drop table if exists council;
+
+drop table if exists district;
+
+drop table if exists estate;
+
+drop table if exists parish;
+

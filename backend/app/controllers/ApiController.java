@@ -89,19 +89,37 @@ public class ApiController extends Controller {
 
         if(regions.size() > 0){
             StringJoiner joiner = new StringJoiner(",");
-            for (String str : regions)
+            for (String str : regions){
+                if(str.length() == 2){
+                    List<Council> councils = District.find.byId(str).councils;
+                    for(Council c : councils){
+                         List<Parish> parishes = Council.find.byId(c.id).parishes;
+                        for(Parish p : parishes)
+                            joiner.add(p.id);
+                    }
+                }
+                else if(str.length() == 4){
+                    List<Parish> parishes = Council.find.byId(str).parishes;
+                    for(Parish p : parishes)
+                        joiner.add(p.id);
+                }
                 joiner.add(str);
+            }
             estateExpression += "parish IN(" + joiner.toString() + ")";
             statementDefined = true;
         }
 
-        if(tag != null && tag.length() > 0) {
+        if(tag != null && tag.length() > 0){
             if(statementDefined)
                 estateExpression += " AND";
             estateExpression += " MATCH (title, details) AGAINST(\"" + tag + "\")";
         }
 
-        List<Estate> pois = Estate.find.where().raw(estateExpression).findList();
+        List<Estate> pois;
+        if(estateExpression.length() > 0)
+            pois = Estate.find.where().raw(estateExpression).findList();
+        else pois = Estate.find.all();
+
         for(Estate estate:pois) {
             ObjectNode poi = Json.newObject();
             poi.put("id", estate.id);
