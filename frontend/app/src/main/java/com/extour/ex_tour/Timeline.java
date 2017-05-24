@@ -57,7 +57,23 @@ public class Timeline extends AppCompatActivity {
         a.addPOI(Bag.getInstance().getItem(spinner.getSelectedItemPosition()));
         items.add(a);
 
-        ListAdapter adapter = new TimeLineItemAdapter(this,items);
-        poiItem.setAdapter(adapter);
-    }
+                ListAdapter adapter = new TimeLineItemAdapter(this,items);
+                poiItem.setAdapter(adapter);
+            }
+
+            private void addAnother(TimelineItem a, ArrayList<TimelineItem> itens){
+                int i=0;
+                for(TimelineItem item: items){
+                    if(a.getHours()<item.getHours()) {
+                        itens.add(i, a);
+                        break;
+                    }
+                    if(a.getHours() == item.getHours() && a.getMinutes()<item.getMinutes()) {
+                        itens.add(i, a);
+                        break;
+                    }
+                    i++;
+                }
+
+            }
 }

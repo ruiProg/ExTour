@@ -28,6 +28,9 @@ public class TimelineItem {
         return poi.getRegion();
     }
 
+    public int getHours(){return hours;}
+        public int getMinutes(){return minutes;}
+
     public String getTime(){
 
         return Integer.toString(hours) + ":" + Integer.toString(minutes);
