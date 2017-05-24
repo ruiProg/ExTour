@@ -24,8 +24,9 @@ public class POIClient {
         client.get(url + id, handler);
     }
 
-    public void getListPoi(String search, JsonHttpResponseHandler handler) {
-        String url = getApiUrl("poi?tag=");
+    public void getTagsPOI(String search, JsonHttpResponseHandler handler) {
+
+        String url = getApiUrl("pois?tag=");
         client.get(url + search, handler);
     }
 }

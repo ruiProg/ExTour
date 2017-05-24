@@ -125,8 +125,12 @@ public class ApiController extends Controller {
             poi.put("id", estate.id);
             poi.put("title", estate.title);
             poi.put("category", estate.category.title);
+            poi.put("parish", estate.parish.name);
+            Council council = estate.parish.council;
+            poi.put("council", council.name);
+            District dis = council.district;
+            poi.put("district", dis.name);
             poi.put("imageURL", estate.imageURL);
-            poi.put("coords", estate.coords);
             poisJSON.add(poi);
         }
         return ok(poisJSON);

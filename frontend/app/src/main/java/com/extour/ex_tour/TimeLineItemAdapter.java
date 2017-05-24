@@ -1,8 +1,6 @@
 package com.extour.ex_tour;
 
 import android.content.Context;
-import android.support.annotation.LayoutRes;
-import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,9 +28,9 @@ public class TimeLineItemAdapter extends ArrayAdapter<TimelineItem> {
         TextView title = (TextView)customView.findViewById(R.id.rowTitleLabel);
         TextView region = (TextView)customView.findViewById(R.id.rowRegionLabel);
 
-        time.setText(item.getTime());
+        time.setText(time.getText() + item.getTime());
         title.setText(item.getTitle());
-        region.setText(item.getRegion());
+        region.setText(region.getText() + item.getRegion());
 
         return customView;
     }

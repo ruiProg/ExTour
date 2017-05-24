@@ -96,8 +96,6 @@ public class POIDetails extends AppCompatActivity {
 
             @Override
             public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
-
-                titleLabel.setText(Integer.toString(statusCode));
             }
         });
     }

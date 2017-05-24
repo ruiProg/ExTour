@@ -1,7 +1,5 @@
 package com.extour.ex_tour;
 
-import java.util.Objects;
-
 public class POI {
 
     private String id;
