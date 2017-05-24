@@ -23,7 +23,8 @@
                 android:layout_marginLeft="70sp"
                 android:layout_marginTop="12sp"
                 android:background="@drawable/ic_search_black_24dp"
-                android:baselineAlignBottom="false" />
+                android:baselineAlignBottom="false"
+                android:onClick="navigateBack" />
 
             <ImageButton
                 android:id="@+id/map_menu"
@@ -31,7 +32,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="140sp"
                 android:layout_marginTop="12sp"
-                android:background="@drawable/ic_map_black_24dp" />
+                android:background="@drawable/ic_map_black_24dp"
+                android:backgroundTint="@color/white" />
 
         </LinearLayout>
 

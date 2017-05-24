@@ -37,9 +37,8 @@ public class POItemAdapter extends ArrayAdapter<POItem> {
         title.setText(item.getTitle());
         category.setText(category.getText() + item.getCategory());
         id.setText(item.getID());
-        region.setText(item.getRegion());
-        title.setText(item.getTitle());
         region.setText(region.getText() + item.getRegion());
+        title.setText(item.getTitle());
         String imageURL = item.getImage();
         if(imageURL.length() > 0)
             Picasso.with(getContext()).load(Uri.parse(imageURL))

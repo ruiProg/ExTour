@@ -1,5 +1,6 @@
 package com.extour.ex_tour;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -24,7 +25,9 @@ public class Timeline extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_timeline);
 
+
         items = new ArrayList<TimelineItem>();
+        /*
         TimelineItem a = new TimelineItem(10,20);
         a.addPOI(new POI("a","b","c"));
         items.add(a);
@@ -33,6 +36,7 @@ public class Timeline extends AppCompatActivity {
         items.add(b);
         Bag.getInstance().addPOI(new POI("a","b","c"));
         Bag.getInstance().addPOI(new POI("h","r","f"));
+        */
 
         poiItem = (ListView)findViewById(R.id.poiItem);
         spinner = (Spinner)findViewById(R.id.spinner);
@@ -59,5 +63,11 @@ public class Timeline extends AppCompatActivity {
 
         ListAdapter adapter = new TimeLineItemAdapter(this,items);
         poiItem.setAdapter(adapter);
+    }
+
+    public void navigateBack(View view) {
+
+        Intent intent = new Intent(this, SearchMaps.class);
+        startActivity(intent);
     }
 }

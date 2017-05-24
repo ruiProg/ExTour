@@ -23,6 +23,7 @@
                 android:layout_marginLeft="70sp"
                 android:layout_marginTop="12sp"
                 android:background="@drawable/ic_search_black_24dp"
+                android:backgroundTint="@color/white"
                 android:baselineAlignBottom="false" />
 
             <ImageButton
@@ -31,7 +32,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="140sp"
                 android:layout_marginTop="12sp"
-                android:background="@drawable/ic_map_black_24dp" />
+                android:background="@drawable/ic_map_black_24dp"
+                android:onClick="navigate" />
 
         </LinearLayout>
 
@@ -55,8 +57,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Name" />
+                android:inputType="textPersonName" />
 
             <Button
                 android:id="@+id/goBtn"

@@ -56,7 +56,7 @@ public class POIDetails extends AppCompatActivity {
         checkedLabel = (ImageButton) findViewById(R.id.checkedLabel);
 
         Intent intent = getIntent();
-        idLabel = intent.getStringExtra(SearchMaps.detailsActivity);
+        idLabel = intent.getStringExtra(SearchMaps.poiMessage);
         clicked = Bag.getInstance().findPOI(idLabel);
         loadPOI();
     }

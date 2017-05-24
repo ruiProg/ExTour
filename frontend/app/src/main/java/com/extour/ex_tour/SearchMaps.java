@@ -1,11 +1,15 @@
 package com.extour.ex_tour;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.media.Image;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.SearchView;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.EditText;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
@@ -19,10 +23,10 @@ import cz.msebera.android.httpclient.Header;
 public class SearchMaps extends AppCompatActivity {
 
     private ArrayList<POItem> items;
-    public static final String detailsActivity = "com.extour.ex_tour.details";
     private EditText searchInput;
     private POIClient client;
     private ListView searchItem;
+    public static final String poiMessage = "com.extour.ex_tour.MESSAGE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +36,16 @@ public class SearchMaps extends AppCompatActivity {
         items = new ArrayList<>();
         searchInput = (EditText)findViewById(R.id.searchTag);
         searchItem = (ListView)findViewById(R.id.searchItem);
+        searchItem.setOnItemClickListener(new OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(SearchMaps.this, POIDetails.class);
+                POItem item = (POItem) parent.getItemAtPosition(position);
+                intent.putExtra(poiMessage, item.getID());
+                startActivity(intent);
+            }
+        });
     }
 
     public void navigate(View view) {
