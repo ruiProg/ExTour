@@ -53,21 +53,34 @@ public class Timeline extends AppCompatActivity {
         poiItem.setAdapter(adapter);
     }
 
-    public void addItem(View view){
+    public void addItem(View view) {
 
         int hours = hourPicker.getValue();
         int minutes = minutesPicker.getValue();
-        TimelineItem a = new TimelineItem(hours,minutes);
+        TimelineItem a = new TimelineItem(hours, minutes);
         a.addPOI(Bag.getInstance().getItem(spinner.getSelectedItemPosition()));
-        items.add(a);
-
-        ListAdapter adapter = new TimeLineItemAdapter(this,items);
-        poiItem.setAdapter(adapter);
+        addAnother(a, items);
     }
 
-    public void navigateBack(View view) {
-
+    public void navigateBack(View view)  {
         Intent intent = new Intent(this, SearchMaps.class);
         startActivity(intent);
+    }
+
+
+    private void addAnother(TimelineItem a, ArrayList<TimelineItem> itens){
+        int i=0;
+        for(TimelineItem item: items){
+            if(a.getHours()<item.getHours()) {
+                itens.add(i, a);
+                break;
+            }
+            if(a.getHours() == item.getHours() && a.getMinutes()<item.getMinutes()) {
+                itens.add(i, a);
+                break;
+            }
+            i++;
+        }
+
     }
 }
