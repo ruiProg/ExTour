@@ -44,4 +44,14 @@ public class POI {
 
         return id;
     }
+
+    public String getTitle(){
+
+        return title;
+    }
+
+    public String getRegion(){
+
+        return region;
+    }
 }

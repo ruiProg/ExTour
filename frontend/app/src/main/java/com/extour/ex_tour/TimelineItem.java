@@ -10,5 +10,26 @@ public class TimelineItem {
 
         this.hours = hours;
         this.minutes = minutes;
+        this.poi = null;
+    }
+
+    public void addPOI(POI poi) {
+
+        this.poi = poi;
+    }
+
+    public String getTitle(){
+
+        return poi.getTitle();
+    }
+
+    public String getRegion(){
+
+        return poi.getRegion();
+    }
+
+    public String getTime(){
+
+        return Integer.toString(hours) + ":" + Integer.toString(minutes);
     }
 }

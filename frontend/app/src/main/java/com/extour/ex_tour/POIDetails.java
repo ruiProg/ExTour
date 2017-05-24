@@ -37,7 +37,7 @@ public class POIDetails extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_poidetails);
-        titleLabel = (TextView) findViewById(R.id.titleLable);
+        titleLabel = (TextView) findViewById(R.id.titleLabel);
         image = (ImageView) findViewById(R.id.imagePOI);
         categoryLabel = (TextView) findViewById(R.id.categoryLabel);
         regionLabel = (TextView) findViewById(R.id.regionLabel);

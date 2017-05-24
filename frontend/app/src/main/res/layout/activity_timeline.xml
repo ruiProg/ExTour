@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context="com.extour.ex_tour.POIDetails"
+        android:weightSum="1">
+
+
+        <LinearLayout
+            android:id="@+id/line"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/colorPrimary"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/search_menu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="70sp"
+                android:layout_marginTop="12sp"
+                android:background="@drawable/ic_search_black_24dp"
+                android:baselineAlignBottom="false" />
+
+            <ImageButton
+                android:id="@+id/map_menu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="140sp"
+                android:layout_marginTop="12sp"
+                android:background="@drawable/ic_map_black_24dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/line2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextClock
+                android:id="@+id/textClock"
+                android:layout_width="105dp"
+                android:layout_height="wrap_content" />
+
+            <Spinner
+                android:id="@+id/spinner"
+                android:layout_width="181dp"
+                android:layout_height="wrap_content" />
+
+            <ImageButton
+                android:id="@+id/imageButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/ic_android_add" />
+
+        </LinearLayout>
+
+        <ListView
+            android:id="@+id/poiItem"
+            android:layout_width="match_parent"
+            android:layout_height="417dp" />
+
+    </LinearLayout>
+</ScrollView>

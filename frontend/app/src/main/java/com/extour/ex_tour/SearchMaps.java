@@ -29,8 +29,7 @@ public class SearchMaps extends FragmentActivity implements OnMapReadyCallback {
 
     public void navigate(View view) {
 
-        Intent intent = new Intent(this, POIDetails.class);
-        intent.putExtra(detailsActivity, "1");
+        Intent intent = new Intent(this, Timeline.class);
         startActivity(intent);
     }
 
