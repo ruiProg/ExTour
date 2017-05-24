@@ -74,8 +74,8 @@ public class POIDetails extends AppCompatActivity {
                         Picasso.with(POIDetails.this).load(Uri.parse(imageURL))
                                 .error(R.drawable.default_image).into(image);
 
-                    if(clicked)
-                        checkedLabel.setImageResource(R.drawable.check);
+                    //if(clicked)
+                        //checkedLabel.setImageResource(R.drawable.check);
                 }
                 catch(Exception e){
                     System.out.println(e.toString());
@@ -90,6 +90,7 @@ public class POIDetails extends AppCompatActivity {
         });
     }
 
+    /*
     public void addPOI(View view) {
 
         Bag bag = Bag.getInstance();
@@ -98,5 +99,5 @@ public class POIDetails extends AppCompatActivity {
             checkedLabel.setImageResource(R.drawable.check);
         else
             checkedLabel.setImageResource(R.drawable.add);
-    }
+    }*/
 }

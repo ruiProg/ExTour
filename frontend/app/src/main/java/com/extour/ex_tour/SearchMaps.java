@@ -27,12 +27,13 @@ public class SearchMaps extends FragmentActivity implements OnMapReadyCallback {
         mapFragment.getMapAsync(this);
     }
 
-    public void navigate(View view) {
+    /*public void navigate(View view) {
 
         Intent intent = new Intent(this, POIDetails.class);
         intent.putExtra(detailsActivity, "1");
         startActivity(intent);
-    }
+    }*/
+
 
 
     /**
