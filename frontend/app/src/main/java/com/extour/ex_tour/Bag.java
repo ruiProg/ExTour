@@ -35,4 +35,26 @@ public class Bag {
                 return true;
         return false;
     }
+
+    public String[] getArray(){
+
+        String[] arr = new String[listPOIS.size()];
+        int i = 0;
+        for(POI p:listPOIS){
+            arr[i] = p.getTitle() + " : " + p.getRegion();
+            i++;
+        }
+        return arr;
+    }
+
+    public POI getItem(int index){
+
+        int i = 0;
+        for(POI p:listPOIS){
+            if (i == index)
+                return p;
+            i++;
+        }
+        return null;
+    }
 }

@@ -44,24 +44,33 @@
         <LinearLayout
             android:id="@+id/line2"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="71dp"
             android:orientation="horizontal">
 
-            <TextClock
-                android:id="@+id/textClock"
-                android:layout_width="105dp"
-                android:layout_height="wrap_content" />
+            <NumberPicker
+                android:id="@+id/hourPicker"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+
+            <NumberPicker
+                android:id="@+id/minutesPicker"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
 
             <Spinner
                 android:id="@+id/spinner"
                 android:layout_width="181dp"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20sp" />
 
             <ImageButton
                 android:id="@+id/imageButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="10sp"
+                android:layout_marginTop="10sp"
                 android:layout_weight="1"
+                android:onClick="addItem"
                 app:srcCompat="@drawable/ic_android_add" />
 
         </LinearLayout>
