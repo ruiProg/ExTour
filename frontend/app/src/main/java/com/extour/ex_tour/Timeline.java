@@ -11,6 +11,8 @@ import android.widget.NumberPicker;
 import android.widget.Spinner;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class Timeline extends AppCompatActivity {
 
@@ -49,38 +51,39 @@ public class Timeline extends AppCompatActivity {
         ArrayAdapter<String> adapterSpinner = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,
                 Bag.getInstance().getArray());
         spinner.setAdapter(adapterSpinner);
+        sort();
         ListAdapter adapter = new TimeLineItemAdapter(this,items);
         poiItem.setAdapter(adapter);
     }
 
-    public void addItem(View view) {
+    public void addItem(View view){
 
         int hours = hourPicker.getValue();
         int minutes = minutesPicker.getValue();
-        TimelineItem a = new TimelineItem(hours, minutes);
+        TimelineItem a = new TimelineItem(hours,minutes);
         a.addPOI(Bag.getInstance().getItem(spinner.getSelectedItemPosition()));
-        addAnother(a, items);
+        items.add(a);
+        sort();
+        ListAdapter adapter = new TimeLineItemAdapter(this,items);
+        poiItem.setAdapter(adapter);
     }
 
-    public void navigateBack(View view)  {
+    public void navigateBack(View view) {
+
         Intent intent = new Intent(this, SearchMaps.class);
         startActivity(intent);
     }
 
+    public void sort(){
 
-    private void addAnother(TimelineItem a, ArrayList<TimelineItem> itens){
-        int i=0;
-        for(TimelineItem item: items){
-            if(a.getHours()<item.getHours()) {
-                itens.add(i, a);
-                break;
-            }
-            if(a.getHours() == item.getHours() && a.getMinutes()<item.getMinutes()) {
-                itens.add(i, a);
-                break;
-            }
-            i++;
-        }
+        Collections.sort(items, new Comparator<TimelineItem>() {
 
+            @Override public int compare(TimelineItem t1, TimelineItem t2) {
+                if(t1.getHours() != t2.getHours())
+                    return t1.getHours() - t2.getHours();
+                return t1.getMinutes() - t2.getMinutes();
+            }
+
+        });
     }
 }
