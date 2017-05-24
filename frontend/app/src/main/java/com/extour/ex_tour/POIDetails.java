@@ -29,6 +29,7 @@ public class POIDetails extends AppCompatActivity {
     private String idLabel;
     private String region;
     private String title;
+    private String info;
     private boolean clicked;
 
     @Override
@@ -42,6 +43,16 @@ public class POIDetails extends AppCompatActivity {
         regionLabel = (TextView) findViewById(R.id.regionLabel);
         coordLabel = (TextView) findViewById(R.id.coordsLabel);
         infoLabel = (TextView) findViewById(R.id.infoLabel);
+        infoLabel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(info.length() > 0) {
+                    Uri uri = Uri.parse(info);
+                    Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                    startActivity(intent);
+                }
+            }
+        });
         checkedLabel = (ImageButton) findViewById(R.id.checkedLabel);
 
         Intent intent = getIntent();
@@ -67,7 +78,8 @@ public class POIDetails extends AppCompatActivity {
                     region = district + ", " + council + ", " + parish;
                     regionLabel.setText(regionLabel.getText() + region);
                     coordLabel.setText(coordLabel.getText() + response.getString("coords"));
-                    infoLabel.setText(infoLabel.getText() + response.getString("linkURL"));
+                    info = response.getString("linkURL");
+                    infoLabel.setText(infoLabel.getText() + info);
 
                     String imageURL = response.getString("imageURL");
                     if(imageURL.length() > 0)
@@ -75,7 +87,7 @@ public class POIDetails extends AppCompatActivity {
                                 .error(R.drawable.default_image).into(image);
 
                     if(clicked)
-                        checkedLabel.setImageResource(R.drawable.check);
+                        checkedLabel.setImageResource(R.drawable.ic_android_checked);
                 }
                 catch(Exception e){
                     System.out.println(e.toString());
@@ -94,9 +106,6 @@ public class POIDetails extends AppCompatActivity {
 
         Bag bag = Bag.getInstance();
         bag.addPOI(new POI(idLabel,title,region));
-        if(clicked)
-            checkedLabel.setImageResource(R.drawable.check);
-        else
-            checkedLabel.setImageResource(R.drawable.add);
+        checkedLabel.setImageResource(R.drawable.ic_android_checked);
     }
 }
