@@ -33,7 +33,7 @@ public class ApiController extends Controller {
         return ok(catJSON);
     }
 
-    public Result getRegions(String id){
+    public Result getRegions(String id) {
 
         ArrayNode regionsJSON = Json.newArray();
         if (id.equals("-1")){
@@ -130,5 +130,27 @@ public class ApiController extends Controller {
             poisJSON.add(poi);
         }
         return ok(poisJSON);
+    }
+
+    public Result getPOI(String id){
+
+        Estate estate = Estate.find.byId(id);
+        if(estate != null){
+            ObjectNode poi = Json.newObject();
+            poi.put("id", estate.id);
+            poi.put("title", estate.title);
+            poi.put("category", estate.category.title);
+            poi.put("parish", estate.parish.name);
+            Council council = estate.parish.council;
+            poi.put("council", council.name);
+            District dis = council.district;
+            poi.put("district", dis.name);
+            poi.put("details", estate.details);
+            poi.put("imageURL", estate.imageURL);
+            poi.put("linkURL", estate.linkURL);
+            poi.put("coords", estate.coords);
+            return ok(poi);
+        }
+        else return badRequest("invalid POI id");
     }
 }

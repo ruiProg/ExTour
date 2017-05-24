@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context="com.extour.ex_tour.POIDetails"
+        android:weightSum="1">
+
+
+        <LinearLayout
+            android:id="@+id/line"
+            android:layout_width="match_parent"
+            android:layout_height="139dp"
+            android:layout_margin="20sp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/titleLable"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingBottom="20sp"
+                android:text="TextView"
+                android:textSize="24sp" />
+
+            <ImageButton
+                android:id="@+id/checkedLabel"
+                android:layout_width="57dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10sp"
+                android:layout_marginTop="10sp"
+                android:onClick="addPOI"
+                app:srcCompat="@android:drawable/ic_input_add" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/categoryLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5sp"
+            android:text="Categoria: "
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/regionLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5sp"
+            android:text="Região: "
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/coordsLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5sp"
+            android:text="Coordenadas: "
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/infoLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5sp"
+            android:layout_weight="0.13"
+            android:text="URL: "
+            android:textSize="12sp" />
+
+        <ImageView
+            android:id="@+id/imagePOI"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="3sp"
+            android:layout_weight="0.42"
+            app:srcCompat="@drawable/default_image" />
+
+    </LinearLayout>
+</ScrollView>

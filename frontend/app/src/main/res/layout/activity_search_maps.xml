@@ -61,11 +61,12 @@
         android:id="@+id/go"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Go"
-        android:layout_alignParentEnd="true"
         android:layout_alignBottom="@+id/searchView"
+        android:layout_alignParentEnd="true"
         android:layout_alignTop="@+id/searchView"
-        android:background="@color/colorPrimaryDark"/>
+        android:background="@color/colorPrimaryDark"
+        android:onClick="navigate"
+        android:text="Go" />
 
     <ImageButton
         android:id="@+id/bag_menu"

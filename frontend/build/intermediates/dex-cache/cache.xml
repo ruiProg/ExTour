@@ -3,21 +3,30 @@
 
     <item
         is-multidex="true"
-        jar="/Users/teresachaves/AndroidStudioProjects/Ex_Tour/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jar="C:\Users\ruifi\.gradle\caches\modules-2\files-2.1\com.squareup.picasso\picasso\2.5.2\7446d06ec8d4f7ffcc53f1da37c95f200dcb9387\picasso-2.5.2.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="cbb71d0dffd37e48bd8c45efa222b4ef05be677c">
-        <dex dex="/Users/teresachaves/AndroidStudioProjects/Ex_Tour/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_a4cb4bd2beb31d76063397b6f6eb4a2d62f4aaa2/classes.dex" />
+        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
+        <dex dex="C:\Users\ruifi\Documents\ExTour\frontend\app\build\intermediates\transforms\dex\debug\folders\1000\10\picasso-2.5.2_3a3a17dc834fca3c6967d52057233c36e4b27dd5\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/Users/teresachaves/AndroidStudioProjects/Ex_Tour/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jar="C:\Users\ruifi\Documents\ExTour\frontend\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="510aa6efc159983dfbffa676a0dae37568c0a46f">
-        <dex dex="/Users/teresachaves/AndroidStudioProjects/Ex_Tour/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_abb1689e0e8e3fa3f1fe5a4a8b03338e167aa860/classes.dex" />
+        <dex dex="C:\Users\ruifi\Documents\ExTour\frontend\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_065f059487deac2433f51586573f8c1e1a679e60\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\ruifi\Documents\ExTour\frontend\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b095cf8ba3242c4fa8fefb9b45939aa7296e1a69">
+        <dex dex="C:\Users\ruifi\Documents\ExTour\frontend\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_2a3c353ddf6ae212988a9993b24a022e0e03c95e\classes.dex" />
     </item>
 
 </items>

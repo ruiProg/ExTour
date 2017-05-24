@@ -5,6 +5,7 @@
 GET     /api/categories             controllers.ApiController.getCategories()
 GET     /api/regions                controllers.ApiController.getRegions(id: String ?="-1")
 GET     /api/pois                   controllers.ApiController.getPOIS(categories: java.util.List[String], regions: java.util.List[String], tag: String ?="")
+GET     /api/poi 					controllers.ApiController.getPOI(id: String)
 
 GET     /dev/regions                controllers.DevController.parseRegions()
 GET     /dev/categories             controllers.DevController.parseCategories()
